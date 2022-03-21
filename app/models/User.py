@@ -1,3 +1,4 @@
+import datetime
 from ..database import db
 
 """
@@ -8,9 +9,12 @@ from ..database import db
 ==========================================================================
 """
 
-class User(db.Model):
+class User(db.Document):
     name = db.StringField(max_length=60, required=True)
     email = db.StringField(required=True, unique=True)
-    birthday = db.DateTimeField(required=True)
+    birthday = db.StringField(required=True)
     personal_phone = db.StringField(max_length=20)
     personal_celphone = db.StringField(max_length=20, required=True)
+
+    created_at = db.DateTimeField(default=datetime.datetime.utcnow)
+    updated_at = db.DateTimeField(default=datetime.datetime.utcnow)

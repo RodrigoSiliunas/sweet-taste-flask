@@ -21,7 +21,7 @@ class ProductionConfig(Config):
 
 class DevelopmentConfig(Config):
     FLASK_ENV = 'development'
-    MONGO_URI = 'mongodb://localhost:27017/'
+    MONGO_URI = 'mongodb://localhost:27017/sweet'
     DEBUG = True
     TESTING = True
     THREADED = False

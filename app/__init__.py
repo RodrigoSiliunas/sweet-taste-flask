@@ -1,5 +1,7 @@
+from .database import db
 from flask import Flask
 from .config import DevelopmentConfig
+from .routes.users.index import blueprint as user
 
 """
 ==========================================================================
@@ -13,3 +15,14 @@ app = Flask(__name__)
 
 # Instânciando as configurações da nossa aplicação a partir de uma classe.
 app.config.from_object(DevelopmentConfig)
+
+# Aqui instanciamos a database.
+db.init_app(app)
+
+# Área de registro de nossas blueprints.
+app.register_blueprint(user)
+
+
+@app.route('/')
+def index():
+    return """Hello World!"""
