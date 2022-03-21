@@ -1,11 +1,11 @@
 import datetime
-from ..database import db
+from app.database import db
 
 """
 ==========================================================================
  ➠ Sweet Taste Backend (https://github.com/RodrigoSiliunas/sweet-taste-flask)
  ➠ Section By: Rodrigo Siliunas (Rô: https://github.com/RodrigoSiliunas)
- ➠ Related system: User
+ ➠ Related system: User Model
 ==========================================================================
 """
 

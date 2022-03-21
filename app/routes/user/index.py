@@ -1,9 +1,8 @@
-import re
 from app.models.User import User
 from app.database import *
 from flask import Blueprint, request, jsonify
 
-blueprint = Blueprint('users', __name__)
+blueprint = Blueprint('user', __name__)
 
 @blueprint.route('/user', methods=['POST'])
 def create_user():

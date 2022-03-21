@@ -1,7 +1,10 @@
 from .database import db
 from flask import Flask
 from .config import DevelopmentConfig
-from .routes.users.index import blueprint as user
+from .routes.user.index import blueprint as user
+from .routes.product.index import blueprint as product
+
+
 
 """
 ==========================================================================
@@ -21,6 +24,7 @@ db.init_app(app)
 
 # Área de registro de nossas blueprints.
 app.register_blueprint(user)
+app.register_blueprint(product)
 
 
 @app.route('/')
