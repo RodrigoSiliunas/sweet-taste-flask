@@ -1,4 +1,4 @@
-import datetime, json
+import datetime
 from app.models.User import User
 from app.database import *
 from flask import Blueprint, request, jsonify
@@ -41,6 +41,7 @@ def update_user():
 
     return jsonify(str(user.id)), 200
 
+
 @blueprint.route('/user/<id>', methods=['DELETE'])
 def delete_user(id: str):
     user = User.objects.get_or_404(id=id)
@@ -60,7 +61,8 @@ def login():
             "error": "Bad request"
         }), 400
 
-    valid_user = User.objects(email=data['email'], password=data['password']).first()
+    valid_user = User.objects(
+        email=data['email'], password=data['password']).first()
 
     if valid_user is None:
         return jsonify({

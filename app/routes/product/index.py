@@ -43,7 +43,7 @@ def update_product(id: str):
     return jsonify(str(product.id)), 200
 
 
-@blueprint.route('/product/<id>',methods=['DELETE'])
+@blueprint.route('/product/<id>', methods=['DELETE'])
 def delete_product(id: str):
     movie = Product.objects.get_or_404(id=id)
     movie.delete()

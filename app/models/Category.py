@@ -8,6 +8,7 @@ from app.database import db
 ==========================================================================
 """
 
+
 class Category(db.EmbeddedDocument):
     name = db.StringField(max_length=64, required=True)
     description = db.StringField(max_length=128, required=True)

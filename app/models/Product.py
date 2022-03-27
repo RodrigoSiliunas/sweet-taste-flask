@@ -10,6 +10,7 @@ from app.models.Category import Category
 ==========================================================================
 """
 
+
 class Product(db.Document):
     name = db.StringField(max_length=80, required=True)
     description = db.StringField(max_length=255)

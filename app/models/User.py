@@ -9,6 +9,7 @@ from app.database import db
 ==========================================================================
 """
 
+
 class User(db.Document):
     name = db.StringField(max_length=60, required=True)
     email = db.StringField(required=True, unique=True)
