@@ -1,10 +1,10 @@
-from .database import db
 from flask import Flask
+from .database import db
 from .config import DevelopmentConfig
+from flask_jwt_extended import JWTManager
+
 from .routes.user.index import blueprint as user
 from .routes.product.index import blueprint as product
-
-
 
 """
 ==========================================================================
@@ -15,6 +15,7 @@ from .routes.product.index import blueprint as product
 """
 
 app = Flask(__name__)
+jwt = JWTManager(app)
 
 # Instânciando as configurações da nossa aplicação a partir de uma classe.
 app.config.from_object(DevelopmentConfig)
@@ -25,8 +26,3 @@ db.init_app(app)
 # Área de registro de nossas blueprints.
 app.register_blueprint(user)
 app.register_blueprint(product)
-
-
-@app.route('/')
-def index():
-    return """Hello World!"""
